@@ -120,3 +120,7 @@ And then run the `docker run -d \ ...` command above again.
 * [Using WireGuard-Easy with nginx/SSL](https://github.com/wg-easy/wg-easy/wiki/Using-WireGuard-Easy-with-nginx-SSL)
 
 For less common or specific edge-case scenarios, please refer to the detailed information provided in the [Wiki](https://github.com/wg-easy/wg-easy/wiki).
+
+# Common Problems
+
+* On mobile phones there can be problem about preferring IPv6. It occurred in on EE. See e.g. https://community.ee.co.uk/t5/Mobile-Broadband/IPv4-only-device/td-p/1212142. Best solution is to limit the APN to use IPv4

@@ -24,6 +24,8 @@ services:
       # - WG_PERSISTENT_KEEPALIVE=25
       # - WG_PRE_UP=echo "Pre Up" > /etc/wireguard/pre-up.txt
       # - WG_POST_UP=echo "Post Up" > /etc/wireguard/post-up.txt
+      - WG_POST_UP="iptables -I INPUT 1 -i wg0 -j ACCEPT; iptables -t nat -I POSTROUTING 1 -s 10.11.1.0/24 -j MASQUERADE -o eth0;iptables -A FORWARD -o wg0 -i eth0 -j ACCEPT;iptables -A FORWARD -i wg0 -o eth0 -j ACCEPT"
+      # - WG_POST_UP="iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; echo 'NAT configured'"
       # - WG_PRE_DOWN=echo "Pre Down" > /etc/wireguard/pre-down.txt
       # - WG_POST_DOWN=echo "Post Down" > /etc/wireguard/post-down.txt
       # - UI_TRAFFIC_STATS=true 

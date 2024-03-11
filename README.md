@@ -124,3 +124,12 @@ For less common or specific edge-case scenarios, please refer to the detailed in
 # Common Problems
 
 * On mobile phones there can be problem about preferring IPv6. It occurred in on EE. See e.g. https://community.ee.co.uk/t5/Mobile-Broadband/IPv4-only-device/td-p/1212142. Best solution is to limit the APN to use IPv4
+
+# Integrated Squid Proxy
+
+This docker compose def also includes a non-chaching Squid Proxy with basic authentication. It needs a `squid.htpasswd` file created using `htpasswd -c -bm  ./squid.htpasswd USERNAME USERPASSWD`. The proxy can then be used with setting environment variables:
+
+```
+http_proxy='http://USERNAME:USERPASSWD@SERVERIP:3128'
+https_proxy='http://USERNAME:USERPASSWD@SERVERIP:3128'
+```
